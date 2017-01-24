@@ -19,7 +19,6 @@ public class Ip181ProxyListPageParserTest {
 			System.out.println(proxy.getIp());
 			System.out.println(proxy.getPort());
 		}
-		System.out.println(urlList.size());
 	}
 
 }

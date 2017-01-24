@@ -128,8 +128,8 @@ public class HttpClientUtil {
 
 			};
 			HttpClientBuilder httpClientBuilder = HttpClients.custom().setConnectionManager(connManager)
-					.setRetryHandler(retryHandler).setDefaultCookieStore(new BasicCookieStore()).setUserAgent(userAgent)
-					.setProxy(new HttpHost("", 0));
+					.setRetryHandler(retryHandler).setDefaultCookieStore(new BasicCookieStore())
+					.setUserAgent(userAgent);
 			if (proxy != null) {
 				httpClientBuilder.setRoutePlanner(new DefaultProxyRoutePlanner(proxy)).build();
 			}
@@ -347,6 +347,15 @@ public class HttpClientUtil {
 			e.printStackTrace();
 		}
 		request.setEntity(entity);
+	}
+
+	public static RequestConfig getRequsetConfig() {
+		return requestConfig;
+
+	}
+
+	public static CloseableHttpClient getHttpClient() {
+		return httpClient;
 	}
 
 	public static org.apache.http.client.config.RequestConfig.Builder getRequestConfigBuilder() {
