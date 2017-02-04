@@ -18,8 +18,6 @@ public class ZhihuUserInfo {
 
 	private String major;// 专业
 
-	private String personalProfile;// 个人简介
-
 	private String answersNum;// 回答数量
 
 	private String starsNum;// 获得赞同数
@@ -29,6 +27,8 @@ public class ZhihuUserInfo {
 	private String followingNum;// 关注的人
 
 	private String followersNum;// 关注者数量
+
+	private String url;
 
 	public int getId() {
 		return id;
@@ -94,14 +94,6 @@ public class ZhihuUserInfo {
 		this.major = major;
 	}
 
-	public String getPersonalProfile() {
-		return personalProfile;
-	}
-
-	public void setPersonalProfile(String personalProfile) {
-		this.personalProfile = personalProfile;
-	}
-
 	public String getAnswersNum() {
 		return answersNum;
 	}
@@ -140,6 +132,21 @@ public class ZhihuUserInfo {
 
 	public void setFollowersNum(String followersNum) {
 		this.followersNum = followersNum;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	@Override
+	public String toString() {
+		return "ZhihuUserInfo [id=" + id + ", 姓名=" + userName + ", 性别=" + gender + ", 行业=" + business + ", 公司="
+				+ company + ", 职位=" + position + ", 大学=" + education + ", 专业=" + major + ", 回答数=" + answersNum
+				+ ", 赞同数=" + starsNum + ", 感谢数=" + thxNum + ", 关注数=" + followingNum + ", 被关注人数=" + followersNum + "]";
 	}
 
 }

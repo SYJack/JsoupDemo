@@ -132,6 +132,13 @@ public class HttpClientUtil2 {
 		return getWebPage(request, "utf-8");
 	}
 
+	public static String getWebPage(String url) throws ParseException, IOException {
+		HttpGet request = new HttpGet(url);
+		requestConfig = RequestConfig.custom().setSocketTimeout(Constants.TIMEOUT).setConnectTimeout(Constants.TIMEOUT)
+				.setConnectionRequestTimeout(Constants.TIMEOUT).setCookieSpec(CookieSpecs.STANDARD).build();
+		return getWebPage(request, "utf-8");
+	}
+
 	private static String getWebPage(HttpRequestBase request, String encoding) throws ParseException, IOException {
 		CloseableHttpResponse response = null;
 		response = getResponse(request);

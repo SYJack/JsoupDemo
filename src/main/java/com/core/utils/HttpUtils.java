@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import org.apache.http.ParseException;
+
 import com.core.http.HttpClientUtil2;
 
 public class HttpUtils {
@@ -46,12 +48,12 @@ public class HttpUtils {
 	}
 
 	public static String getContent(String url) {
-
 		HashMap<String, Integer> ip = setProxyIp();
 		for (Entry<String, Integer> entry : ip.entrySet()) {
 			try {
 				String content = HttpClientUtil2.getWebPage(url, entry.getKey(), entry.getValue());
-				if (content == null || content.toString().trim().equals("")) {// 表示ip被拦截或者其他情况
+				if (content == null || content.toString().trim().equals("")) {//
+					// 表示ip被拦截或者其他情况
 					System.out.println("出现ip被拦截或者其他情况");
 					HttpUtils.setProxyIp();
 					getContent(url);
@@ -65,6 +67,15 @@ public class HttpUtils {
 		}
 		return getContent(url);
 	}
+
+	// public static String getContent(String url) {
+	// try {
+	// return HttpClientUtil2.getWebPage(url);
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// return null;
+	// }
 
 	public static void main(String[] args) throws IOException {
 		String url = "https://www.zhihu.com/people/chibaole/answers";
