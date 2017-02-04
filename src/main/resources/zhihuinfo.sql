@@ -12,6 +12,6 @@ CREATE TABLE `zhihuuserinfo` (
   `thxNum` varchar(11) NOT NULL,
   `followingNum` varchar(11) NOT NULL,
   `followersNum` varchar(11) NOT NULL,
-  `url` varchar(11) NOT NULL,
+  `url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

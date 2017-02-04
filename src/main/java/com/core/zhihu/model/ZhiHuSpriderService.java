@@ -1,6 +1,5 @@
 package com.core.zhihu.model;
 
-import java.sql.Connection;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -11,7 +10,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.core.jdbc.DBStatement;
 import com.core.jdbc.UsersDAOImpl;
 import com.core.utils.BloomFilter;
 import com.core.utils.HttpUtils;
@@ -189,6 +187,8 @@ public class ZhiHuSpriderService {
 			// 打印用户信息
 			System.out.println("爬取成功：" + userInfo);
 
+			// 插入数据库
+			daoImpl.insert(userInfo);
 			// 将用户关注的人放入阻塞队列
 			addUserUrlIntoQueue(zhiHuUserUrl);
 		}

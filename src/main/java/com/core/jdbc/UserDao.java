@@ -2,9 +2,11 @@ package com.core.jdbc;
 
 import java.util.List;
 
+import com.core.zhihu.model.ZhihuUserInfo;
+
 public interface UserDao {
 
-	public boolean insert(User user);// 插入数据
+	public boolean insert(ZhihuUserInfo user);// 插入数据
 
 	public boolean delete(int id);
 
