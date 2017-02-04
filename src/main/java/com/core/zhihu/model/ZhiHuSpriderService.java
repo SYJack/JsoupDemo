@@ -1,5 +1,6 @@
 package com.core.zhihu.model;
 
+import java.sql.Connection;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -10,6 +11,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.core.jdbc.DBStatement;
+import com.core.jdbc.UsersDAOImpl;
 import com.core.utils.BloomFilter;
 import com.core.utils.HttpUtils;
 
@@ -20,6 +23,9 @@ public class ZhiHuSpriderService {
 	private static BlockingDeque<String> urlQueue = new LinkedBlockingDeque<String>();
 
 	private static Executor executor = Executors.newFixedThreadPool(10);
+
+	// 数据库连接
+	private static UsersDAOImpl daoImpl = new UsersDAOImpl();
 
 	public static void main(String[] args) throws InterruptedException {
 		urlQueue.put("https://www.zhihu.com/people/chibaole");
